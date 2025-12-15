@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MS‑DRG Input Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-title">
+        MS‑DRG Automated<br />Classification System
+        <span>BA / Dev / QA workspace</span>
+      </div>
+      <nav class="nav">
+        <a class="nav-item active" href="index.html">
+          <span class="icon">1</span>
+          MS‑DRG Input Panel
+        </a>
+        <a class="nav-item" href="result.html">
+          <span class="icon">2</span>
+          Classification Result
+        </a>
+        <a class="nav-item" href="trace.html">
+          <span class="icon">3</span>
+          DRG Rule Trace Log
+        </a>
+        <a class="nav-item" href="validation.html">
+          <span class="icon">4</span>
+          DRG Validation Panel
+        </a>
+        <a class="nav-item" href="analytics.html">
+          <span class="icon">5</span>
+          Reports &amp; Analytics
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-main">
+          <div class="breadcrumb">MS‑DRG Input Panel</div>
+          <div class="topbar-title">MS‑DRG Classification – Input Panel</div>
+        </div>
+        <div class="topbar-right">
+          <div class="case-pill">
+            <span>Case ID: P‑2025‑000342</span>
+            <span class="badge">No DRG yet</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="column-main">
+          <div>
+            <div class="section-title">Patient &amp; Coding Input</div>
+            <div class="card">
+              <div class="section-title" style="margin-bottom: 0.5rem;">Patient Information</div>
+              <div class="form-grid">
+                <div class="field">
+                  <label class="field-label">
+                    <span>Patient ID<span class="required">*</span></span>
+                  </label>
+                  <input class="input" type="text" placeholder="Enter patient identifier" />
+                  <div class="field-helper">Mandatory unique ID for this encounter.</div>
+                </div>
+
+                <div class="inline-row">
+                  <div class="field">
+                    <label class="field-label">
+                      <span>Age<span class="required">*</span></span>
+                      <span>0–120</span>
+                    </label>
+                    <input class="input" type="number" min="0" max="120" placeholder="67" />
+                  </div>
+                  <div class="field">
+                    <label class="field-label">
+                      <span>Gender<span class="required">*</span></span>
+                    </label>
+                    <select>
+                      <option value="">Select</option>
+                      <option>Male</option>
+                      <option>Female</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label class="field-label">
+                      <span>Discharge Status<span class="required">*</span></span>
+                    </label>
+                    <select>
+                      <option value="">Select</option>
+                      <option>Home</option>
+                      <option>Transfer</option>
+                      <option>Expired</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field-helper">
+                  Age and discharge status influence MS‑DRG grouping and severity.
+                </div>
+              </div>
+
+              <div style="height: 1rem;"></div>
+              <div class="section-title" style="margin-bottom: 0.5rem;">Diagnosis Coding</div>
+              <div class="form-grid">
+                <div class="field">
+                  <label class="field-label">
+                    <span>Principal Diagnosis (ICD‑10‑CM)<span class="required">*</span></span>
+                  </label>
+                  <input class="input" type="text" placeholder="e.g., J18.9 – Pneumonia, unspecified organism" />
+                  <div class="field-helper">Only one principal diagnosis is allowed.</div>
+                </div>
+
+                <div class="field">
+                  <label class="field-label">
+                    <span>Secondary Diagnoses (ICD‑10‑CM)</span>
+                  </label>
+                  <div class="chips-input">
+                    <span class="chip">
+                      N17.9
+                      <span class="chip-badge mcc">MCC</span>
+                    </span>
+                    <span class="chip">
+                      E11.9
+                      <span class="chip-badge cc">CC</span>
+                    </span>
+                    <input type="text" placeholder="Add ICD‑10 code…" />
+                  </div>
+                  <div class="field-helper">
+                    Detected: 1 MCC, 1 CC, 0 other comorbidities.
+                  </div>
+                </div>
+              </div>
+
+              <div style="height: 1rem;"></div>
+              <div class="section-title" style="margin-bottom: 0.5rem;">Procedure Information</div>
+              <div class="form-grid">
+                <div class="field">
+                  <label class="field-label">
+                    <span>Procedure Codes (ICD‑10‑PCS)</span>
+                  </label>
+                  <div class="chips-input">
+                    <input type="text" placeholder="Add ICD‑10‑PCS code…" />
+                  </div>
+                  <div class="field-helper">
+                    No qualifying OR procedure detected – medical DRG logic will be applied.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="column-side">
+          <div>
+            <div class="section-title">Classification Result (Preview)</div>
+            <div class="card">
+              <div class="result-hero">
+                <div class="drg-main">
+                  <div class="drg-code">193</div>
+                  <div class="drg-desc">Pneumonia with MCC</div>
+                  <div class="severity-pill">Severity: MCC</div>
+                </div>
+                <div class="hero-meta">
+                  <div>
+                    <div class="meta-label">MDC</div>
+                    <div>MDC 04 – Respiratory</div>
+                  </div>
+                  <div>
+                    <div class="meta-label">DRG Type</div>
+                    <div>Medical</div>
+                  </div>
+                  <div>
+                    <div class="meta-label">Relative Weight</div>
+                    <div>1.34</div>
+                  </div>
+                  <div>
+                    <div class="meta-label">Version</div>
+                    <div>MS‑DRG v40 (example)</div>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-footer">
+                <div>Result shown here is illustrative; it updates after classification.</div>
+                <div class="pill-row">
+                  <div class="pill">Principal Dx: J18.9</div>
+                  <div class="pill">MCC: N17.9</div>
+                  <div class="pill">CC: E11.9</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-title">Decision Explanation (Preview)</div>
+            <div class="card">
+              <div class="steps">
+                <div class="step">
+                  <div class="step-index">1</div>
+                  <div class="step-body">
+                    <div class="step-title">Principal diagnosis → MDC</div>
+                    <div>J18.9 mapped to MDC 04 – Respiratory.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-index">2</div>
+                  <div class="step-body">
+                    <div class="step-title">Surgical vs medical path</div>
+                    <div>No qualifying OR procedure, so medical DRG logic is used.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="action-bar">
+        <div class="actions-left">
+          <button class="btn btn-text">Reset</button>
+          <button class="btn btn-outline">Save Case</button>
+        </div>
+        <div class="actions-right">
+          <a href="result.html" class="btn btn-primary">Generate MS‑DRG</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

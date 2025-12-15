@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MS‑DRG Classification Result</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-title">
+        MS‑DRG Automated<br />Classification System
+        <span>BA / Dev / QA workspace</span>
+      </div>
+      <nav class="nav">
+        <a class="nav-item" href="index.html">
+          <span class="icon">1</span>
+          MS‑DRG Input Panel
+        </a>
+        <a class="nav-item active" href="result.html">
+          <span class="icon">2</span>
+          Classification Result
+        </a>
+        <a class="nav-item" href="trace.html">
+          <span class="icon">3</span>
+          DRG Rule Trace Log
+        </a>
+        <a class="nav-item" href="validation.html">
+          <span class="icon">4</span>
+          DRG Validation Panel
+        </a>
+        <a class="nav-item" href="analytics.html">
+          <span class="icon">5</span>
+          Reports &amp; Analytics
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-main">
+          <div class="breadcrumb">MS‑DRG Input Panel &gt; Classification Result</div>
+          <div class="topbar-title">MS‑DRG Classification Result</div>
+        </div>
+        <div class="topbar-right">
+          <div class="case-pill">
+            <span>Case ID: P‑2025‑000342</span>
+            <span class="badge">Final MS‑DRG Assigned</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="column-main">
+          <div>
+            <div class="section-title">DRG Result Summary</div>
+            <div class="card">
+              <div class="result-hero">
+                <div class="drg-main">
+                  <div class="drg-code">193</div>
+                  <div class="drg-desc">Pneumonia with MCC</div>
+                  <div class="severity-pill">Severity: MCC</div>
+                </div>
+                <div class="hero-meta">
+                  <div>
+                    <div class="meta-label">MDC</div>
+                    <div>MDC 04 – Respiratory</div>
+                  </div>
+                  <div>
+                    <div class="meta-label">DRG Type</div>
+                    <div>Medical</div>
+                  </div>
+                  <div>
+                    <div class="meta-label">Relative Weight</div>
+                    <div>1.34</div>
+                  </div>
+                  <div>
+                    <div class="meta-label">Version</div>
+                    <div>MS‑DRG v40 (example)</div>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-footer">
+                <div>Calculated using the configured MS‑DRG grouper logic for the selected fiscal year.</div>
+                <div class="pill-row">
+                  <div class="pill">Principal Dx: J18.9</div>
+                  <div class="pill">MCC: N17.9</div>
+                  <div class="pill">CC: E11.9</div>
+                  <div class="pill">No OR procedure</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-title">Decision Explanation</div>
+            <div class="card">
+              <div class="steps">
+                <div class="step">
+                  <div class="step-index">1</div>
+                  <div class="step-body">
+                    <div class="step-title">Principal diagnosis mapped to MDC</div>
+                    <div>Principal diagnosis J18.9 routes the case to MDC 04 (Respiratory system).</div>
+                    <div class="step-meta">Rule: MDC_04_PD_MAP</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-index">2</div>
+                  <div class="step-body">
+                    <div class="step-title">No qualifying surgical procedure</div>
+                    <div>No qualifying OR procedure code was detected, so the medical DRG path is used.</div>
+                    <div class="step-meta">Rule: SURGICAL_PATH_CHECK</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-index">3</div>
+                  <div class="step-body">
+                    <div class="step-title">MCC and CC evaluation</div>
+                    <div>Secondary diagnosis N17.9 is an MCC, and E11.9 is a CC; the MCC drives the final severity.</div>
+                    <div class="step-meta">Rule: MCC_CC_SEVERITY_HIERARCHY</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-index">4</div>
+                  <div class="step-body">
+                    <div class="step-title">Final DRG assignment</div>
+                    <div>Within MDC 04 and with MCC present, the case is assigned to MS‑DRG 193 – Pneumonia with MCC.</div>
+                    <div class="step-meta">Rule: MDC04_MCC_PNEUMONIA_MAP</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inline-actions">
+                <a class="inline-link" href="trace.html">View rule trace log</a>
+                <a class="inline-link" href="validation.html">Open validation panel</a>
+                <button class="inline-link">Export result snapshot</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="column-side">
+          <div>
+            <div class="section-title">Case Snapshot</div>
+            <div class="card">
+              <div class="side-block-title">Patient &amp; Encounter</div>
+              <div class="key-value">
+                <span class="label">Patient ID</span>
+                <span class="value">P‑2025‑000342</span>
+              </div>
+              <div class="key-value">
+                <span class="label">Age / Gender</span>
+                <span class="value">67 / Male</span>
+              </div>
+              <div class="key-value">
+                <span class="label">Discharge Status</span>
+                <span class="value">Home</span>
+              </div>
+              <div class="key-value">
+                <span class="label">Stay Type</span>
+                <span class="value">Inpatient</span>
+              </div>
+
+              <div style="margin-top: 0.75rem;" class="side-block-title">Coding Overview</div>
+              <div class="key-value">
+                <span class="label">Principal Dx</span>
+                <span class="value">J18.9</span>
+              </div>
+              <div class="key-value">
+                <span class="label">MCCs</span>
+                <span class="value">N17.9</span>
+              </div>
+              <div class="key-value">
+                <span class="label">CCs</span>
+                <span class="value">E11.9</span>
+              </div>
+              <div class="key-value">
+                <span class="label">Procedures</span>
+                <span class="value">None qualifying</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-title">For Developers &amp; QA</div>
+            <div class="card">
+              <div class="side-block-title">Quick checks</div>
+              <div class="list">
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>All mandatory inputs were present.</div>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>Severity derived from highest-level comorbidity (MCC &gt; CC &gt; none).</div>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>DRG mapping found for MDC 04 with medical path and MCC present.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="action-bar">
+        <div>
+          <a class="btn btn-text" href="index.html">&larr; Back to input</a>
+        </div>
+        <div>
+          <a class="btn btn-outline" href="trace.html">View rule trace log</a>
+          <a class="btn btn-outline" href="validation.html">Open validation panel</a>
+          <button class="btn btn-primary">Save result &amp; lock DRG</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

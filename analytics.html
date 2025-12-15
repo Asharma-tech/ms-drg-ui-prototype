@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MS‑DRG Reports &amp; Analytics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-title">
+        MS‑DRG Automated<br />Classification System
+        <span>BA / Dev / QA workspace</span>
+      </div>
+      <nav class="nav">
+        <a class="nav-item" href="index.html">
+          <span class="icon">1</span>
+          MS‑DRG Input Panel
+        </a>
+        <a class="nav-item" href="result.html">
+          <span class="icon">2</span>
+          Classification Result
+        </a>
+        <a class="nav-item" href="trace.html">
+          <span class="icon">3</span>
+          DRG Rule Trace Log
+        </a>
+        <a class="nav-item" href="validation.html">
+          <span class="icon">4</span>
+          DRG Validation Panel
+        </a>
+        <a class="nav-item active" href="analytics.html">
+          <span class="icon">5</span>
+          Reports &amp; Analytics
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-main">
+          <div class="breadcrumb">MS‑DRG Analytics</div>
+          <div class="topbar-title">Reports &amp; Analytics</div>
+        </div>
+        <div class="topbar-right">
+          <div class="case-pill">
+            <span>Dataset: Last 12 months</span>
+            <span class="badge">Demo data</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="column-main">
+          <div>
+            <div class="section-title">Key metrics</div>
+            <div class="tiles">
+              <div class="card tile-kpi">
+                <div class="side-block-title">Total cases</div>
+                <div class="tile-kpi-value">1,248</div>
+                <div class="tile-kpi-sub">All MS‑DRG classified inpatient encounters.</div>
+              </div>
+              <div class="card tile-kpi">
+                <div class="side-block-title">Reclassification rate</div>
+                <div class="tile-kpi-value">4.2%</div>
+                <div class="tile-kpi-sub">Cases where DRG changed after validation or audit.</div>
+              </div>
+              <div class="card tile-kpi">
+                <div class="side-block-title">MCC rate</div>
+                <div class="tile-kpi-value">31%</div>
+                <div class="tile-kpi-sub">Share of cases with MCC‑level severity.</div>
+              </div>
+              <div class="card tile-kpi">
+                <div class="side-block-title">Audit risk cases</div>
+                <div class="tile-kpi-value">58</div>
+                <div class="tile-kpi-sub">Cases flagged for potential coding / DRG issues.</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-title">DRG distribution</div>
+            <div class="card">
+              <div class="field-helper" style="margin-bottom:0.5rem;">
+                Mock table standing in for a bar chart: count of cases per MS‑DRG.
+              </div>
+              <div style="overflow:auto;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>MS‑DRG</th>
+                      <th>Description</th>
+                      <th>Cases</th>
+                      <th>% of total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>193</td>
+                      <td>Pneumonia with MCC</td>
+                      <td>184</td>
+                      <td>14.7%</td>
+                    </tr>
+                    <tr>
+                      <td>194</td>
+                      <td>Pneumonia with CC</td>
+                      <td>162</td>
+                      <td>13.0%</td>
+                    </tr>
+                    <tr>
+                      <td>195</td>
+                      <td>Pneumonia without CC/MCC</td>
+                      <td>96</td>
+                      <td>7.7%</td>
+                    </tr>
+                    <tr>
+                      <td>291</td>
+                      <td>Heart failure &amp; shock with MCC</td>
+                      <td>91</td>
+                      <td>7.3%</td>
+                    </tr>
+                    <tr>
+                      <td>392</td>
+                      <td>Esophagitis, gastroent &amp; misc DIG disorders w/o MCC</td>
+                      <td>77</td>
+                      <td>6.2%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="column-side">
+          <div>
+            <div class="section-title">Severity mix</div>
+            <div class="card">
+              <div class="side-block-title">MCC vs CC vs none</div>
+              <div class="list">
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>MCC cases: 31% (high severity).</div>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>CC cases: 44% (moderate severity).</div>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>No CC/MCC: 25% (low severity).</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-title">Audit risk cases</div>
+            <div class="card">
+              <div class="field-helper" style="margin-bottom:0.4rem;">
+                Example table of cases flagged for potential review.
+              </div>
+              <div style="overflow:auto; max-height:220px;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Patient ID</th>
+                      <th>MS‑DRG</th>
+                      <th>Reason</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>P‑2025‑000112</td>
+                      <td>193</td>
+                      <td>High payment weight &amp; rare combination</td>
+                      <td>Open</td>
+                    </tr>
+                    <tr>
+                      <td>P‑2025‑000327</td>
+                      <td>291</td>
+                      <td>Conflicting CC/MCC documentation</td>
+                      <td>Under review</td>
+                    </tr>
+                    <tr>
+                      <td>P‑2025‑000411</td>
+                      <td>194</td>
+                      <td>Principal Dx borderline for DRG</td>
+                      <td>Open</td>
+                    </tr>
+                    <tr>
+                      <td>P‑2025‑000587</td>
+                      <td>195</td>
+                      <td>DRG changed after validation</td>
+                      <td>Closed</td>
+                    </tr>
+                    <tr>
+                      <td>P‑2025‑000623</td>
+                      <td>193</td>
+                      <td>Short stay outlier</td>
+                      <td>Under review</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="action-bar">
+        <div>
+          <a class="btn btn-text" href="index.html">&larr; Back to input</a>
+        </div>
+        <div>
+          <button class="btn btn-outline">Export dashboard</button>
+          <button class="btn btn-primary">Download CSV</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

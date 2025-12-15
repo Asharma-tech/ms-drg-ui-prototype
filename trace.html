@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DRG Rule Trace Log</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-title">
+        MS‑DRG Automated<br />Classification System
+        <span>BA / Dev / QA workspace</span>
+      </div>
+      <nav class="nav">
+        <a class="nav-item" href="index.html">
+          <span class="icon">1</span>
+          MS‑DRG Input Panel
+        </a>
+        <a class="nav-item" href="result.html">
+          <span class="icon">2</span>
+          Classification Result
+        </a>
+        <a class="nav-item active" href="trace.html">
+          <span class="icon">3</span>
+          DRG Rule Trace Log
+        </a>
+        <a class="nav-item" href="validation.html">
+          <span class="icon">4</span>
+          DRG Validation Panel
+        </a>
+        <a class="nav-item" href="analytics.html">
+          <span class="icon">5</span>
+          Reports &amp; Analytics
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-main">
+          <div class="breadcrumb">Classification Result &gt; DRG Rule Trace Log</div>
+          <div class="topbar-title">DRG Rule Trace Log</div>
+        </div>
+        <div class="topbar-right">
+          <div class="case-pill">
+            <span>Case ID: P‑2025‑000342</span>
+            <span class="badge">Final MS‑DRG Assigned</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="column-main">
+          <div>
+            <div class="section-title">Execution steps</div>
+            <div class="card">
+              <div class="inline-row" style="margin-bottom:0.75rem;">
+                <div class="field">
+                  <label class="field-label"><span>Trace level</span></label>
+                  <select>
+                    <option>Summary</option>
+                    <option>Detailed</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label class="field-label"><span>Filter rules</span></label>
+                  <input class="input" type="text" placeholder="Search by rule ID or step name…" />
+                </div>
+                <div class="field">
+                  <label class="field-label"><span>Show only</span></label>
+                  <select>
+                    <option>All steps</option>
+                    <option>Errors only</option>
+                    <option>Skipped / conditional</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="overflow:auto;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Rule step</th>
+                      <th>Rule ID</th>
+                      <th>Input snapshot</th>
+                      <th>Result / output</th>
+                      <th>Exec time</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>MDC determination</td>
+                      <td>MDC_04_PD_MAP</td>
+                      <td>PDx: J18.9</td>
+                      <td>MDC 04</td>
+                      <td>3 ms</td>
+                    </tr>
+                    <tr>
+                      <td>Surgical check</td>
+                      <td>SURGICAL_PATH_CHECK</td>
+                      <td>PCS: none qualifying</td>
+                      <td>Medical path</td>
+                      <td>2 ms</td>
+                    </tr>
+                    <tr>
+                      <td>MCC evaluation</td>
+                      <td>MCC_CC_SEVERITY_HIERARCHY</td>
+                      <td>Sec Dx: N17.9, E11.9</td>
+                      <td>MCC present (N17.9)</td>
+                      <td>4 ms</td>
+                    </tr>
+                    <tr>
+                      <td>Final DRG mapping</td>
+                      <td>MDC04_MCC_PNEUMONIA_MAP</td>
+                      <td>MDC 04, medical, MCC</td>
+                      <td>DRG 193</td>
+                      <td>5 ms</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="column-side">
+          <div>
+            <div class="section-title">Selected rule details</div>
+            <div class="card">
+              <div class="side-block-title">Rule: MCC_CC_SEVERITY_HIERARCHY</div>
+              <div class="list">
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>If any MCC exists in secondary diagnoses, severity = MCC.</div>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>Else if any CC exists, severity = CC; otherwise, severity = none.</div>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>Evaluated with N17.9 (MCC) and E11.9 (CC); outcome: MCC.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-title">Trace controls</div>
+            <div class="card">
+              <div class="list">
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>Download this trace log as CSV for offline analysis.</div>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>Filter by errors only to focus on failing rules.</div>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>Use execution time to identify performance bottlenecks.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="action-bar">
+        <div>
+          <a class="btn btn-text" href="result.html">&larr; Back to result</a>
+        </div>
+        <div>
+          <button class="btn btn-outline">Download trace (CSV)</button>
+          <button class="btn btn-primary">Refresh trace</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

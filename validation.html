@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DRG Validation Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-title">
+        MS‑DRG Automated<br />Classification System
+        <span>BA / Dev / QA workspace</span>
+      </div>
+      <nav class="nav">
+        <a class="nav-item" href="index.html">
+          <span class="icon">1</span>
+          MS‑DRG Input Panel
+        </a>
+        <a class="nav-item" href="result.html">
+          <span class="icon">2</span>
+          Classification Result
+        </a>
+        <a class="nav-item" href="trace.html">
+          <span class="icon">3</span>
+          DRG Rule Trace Log
+        </a>
+        <a class="nav-item active" href="validation.html">
+          <span class="icon">4</span>
+          DRG Validation Panel
+        </a>
+        <a class="nav-item" href="analytics.html">
+          <span class="icon">5</span>
+          Reports &amp; Analytics
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-main">
+          <div class="breadcrumb">Classification Result &gt; DRG Validation Panel</div>
+          <div class="topbar-title">DRG Validation Panel</div>
+        </div>
+        <div class="topbar-right">
+          <div class="case-pill">
+            <span>Case ID: P‑2025‑000342</span>
+            <span class="badge">Under validation</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="column-main">
+          <div>
+            <div class="section-title">Validation checklist</div>
+            <div class="card">
+              <div style="overflow:auto;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Check</th>
+                      <th>Status</th>
+                      <th>Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Principal Dx present</td>
+                      <td>✅</td>
+                      <td>Principal diagnosis J18.9 captured.</td>
+                    </tr>
+                    <tr>
+                      <td>Invalid ICD code</td>
+                      <td>❌</td>
+                      <td>Code X12.345 not valid in current ICD‑10‑CM set.</td>
+                    </tr>
+                    <tr>
+                      <td>CC / MCC conflict</td>
+                      <td>❌</td>
+                      <td>CC E11.9 ignored because MCC N17.9 already applied.</td>
+                    </tr>
+                    <tr>
+                      <td>DRG mapping found</td>
+                      <td>✅</td>
+                      <td>Assigned MS‑DRG 193 – Pneumonia with MCC.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-title">Messages</div>
+            <div class="card">
+              <div class="side-block-title">Errors</div>
+              <div class="list">
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>Invalid ICD‑10‑CM code X12.345. Please correct or remove this code.</div>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>CC E11.9 is present but superseded by MCC N17.9; confirm this is expected.</div>
+                </div>
+              </div>
+
+              <div style="margin-top:0.75rem;" class="side-block-title">Warnings</div>
+              <div class="list">
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>Patient age 67 with pneumonia and MCC; confirm documentation supports MCC selection.</div>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>No qualifying procedures detected; ensure no OR procedure was missed.</div>
+                </div>
+              </div>
+
+              <div style="margin-top:0.75rem;" class="side-block-title">Info</div>
+              <div class="list">
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>All mandatory encounter fields (age, gender, discharge status) are present.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="column-side">
+          <div>
+            <div class="section-title">Quick actions</div>
+            <div class="card">
+              <div class="list">
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>Open Input Panel to correct diagnosis or procedure coding.</div>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>Open Rule Trace Log to inspect why CC was ignored when MCC existed.</div>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <div>Export validation summary as PDF for audit support.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-title">Validation status</div>
+            <div class="card">
+              <div class="side-block-title">Current status</div>
+              <div class="key-value">
+                <span class="label">Overall</span>
+                <span class="value">Needs review</span>
+              </div>
+              <div class="key-value">
+                <span class="label">Errors</span>
+                <span class="value">2</span>
+              </div>
+              <div class="key-value">
+                <span class="label">Warnings</span>
+                <span class="value">2</span>
+              </div>
+              <div class="key-value">
+                <span class="label">Info messages</span>
+                <span class="value">1</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="action-bar">
+        <div>
+          <a class="btn btn-text" href="result.html">&larr; Back to result</a>
+        </div>
+        <div>
+          <button class="btn btn-outline">Re‑run validation</button>
+          <button class="btn btn-primary">Mark as validated</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
